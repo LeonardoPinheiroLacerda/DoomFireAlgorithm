@@ -20,16 +20,14 @@ class FireProcessor {
 
     calculateFirePropagation() {
         for(let column = 0; column < fireWidth; column ++) {
-            for(let row = 0; row < fireHeight; row ++) {
+            for(let row = 0; row < fireHeight - 1; row ++) {
                 this.updateFireIntensityPerPixel(row, column);
             }
         }
         this.renderer.renderFire();
     }
     
-    updateFireIntensityPerPixel(row, column) {
-        if(row + 1 === this.firePixelsMatriz.length) return;
-            
+    updateFireIntensityPerPixel(row, column) {           
         const rowWidth = this.firePixelsMatriz[0].length;
 
         /*
@@ -58,7 +56,7 @@ class FireProcessor {
             else //Se a chama sair da tela ela deve surgir no lado contrario do canvas
                 this.firePixelsMatriz[row][column - decay + rowWidth] = newFireIntensity;
 
-        }else if(this.windDirection === 'right') {
+        }else {
             
             if(column + decay < rowWidth)
                 this.firePixelsMatriz[row][column + decay] = newFireIntensity;
