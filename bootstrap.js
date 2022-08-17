@@ -1,9 +1,9 @@
 const firePixelsMatriz = [];
-const fireWidth = 180
-const fireHeight = 75;
+const fireWidth = 240
+const fireHeight = 73;
 
 const canvasWidth = 720;
-const canvasHeight = 300;
+const canvasHeight = 220;
 
 const frameSpeed = 40;
 
