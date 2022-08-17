@@ -17,7 +17,7 @@ if(debug){
 const dataStructureCreator = new FireDataStructureCreator(firePixelsMatriz, fireWidth, fireHeight);
 const sourceCreator = new FireSourceCreator(firePixelsMatriz, 
     {
-        baseFireBrightness: 36
+        sourceFireBrightness: 36
     }
 );
 const processor = new FireProcessor(firePixelsMatriz, renderer, 

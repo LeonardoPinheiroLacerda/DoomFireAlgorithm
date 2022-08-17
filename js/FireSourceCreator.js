@@ -2,11 +2,11 @@ class FireSourceCreator {
 
     /**
      * @param {Array} firePixelsMatriz 
-     * @param {{baseFireBrightness : Integer}} options 
+     * @param {{sourceFireBrightness : Integer}} options 
      */
     constructor(firePixelsMatriz, options = {}){
         this.firePixelsMatriz = firePixelsMatriz;
-        this.baseFireBrightness = options.baseFireBrightness ? options.baseFireBrightness :  36;
+        this.sourceFireBrightness = options.sourceFireBrightness ? options.sourceFireBrightness :  36;
     }
 
     /**
@@ -15,7 +15,7 @@ class FireSourceCreator {
     create() {
         const lastRow = this.firePixelsMatriz[this.firePixelsMatriz.length - 1];
         for(let column = 0; column < lastRow.length; column ++){
-            lastRow[column] = this.baseFireBrightness;
+            lastRow[column] = this.sourceFireBrightness;
         }
     }
 
