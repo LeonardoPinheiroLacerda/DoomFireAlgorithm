@@ -1,5 +1,12 @@
 class BaseFireRenderer {
-    constructor() {
+
+    /**
+     * 
+     * @param {Array} firePixelsMatriz 
+     * @param {Integer} fireWidth 
+     * @param {Integer} fireHeight 
+     */
+    constructor(firePixelsMatriz, fireWidth, fireHeight) {
         this.fireColorsPalette = [
             { "r": 7, "g": 7, "b": 7 },
             { "r": 31, "g": 7, "b": 7 }, 
@@ -39,5 +46,8 @@ class BaseFireRenderer {
             { "r": 239, "g": 239, "b": 199 }, 
             { "r": 255, "g": 255, "b": 255 }
         ];
+        this.fireWidth = fireWidth;
+        this.fireHeight = fireHeight;
+        this.firePixelsMatriz = firePixelsMatriz;
     }
 }

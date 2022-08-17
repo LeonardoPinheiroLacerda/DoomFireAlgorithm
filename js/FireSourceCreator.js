@@ -1,15 +1,21 @@
 class FireSourceCreator {
 
-    constructor(pixelsArray){
-        this.pixelsArray = pixelsArray;
+    /**
+     * @param {Array} firePixelsMatriz 
+     * @param {{baseFireBrightness : Integer}} options 
+     */
+    constructor(firePixelsMatriz, options = {}){
+        this.firePixelsMatriz = firePixelsMatriz;
+        this.baseFireBrightness = options.baseFireBrightness ? options.baseFireBrightness :  36;
     }
 
+    /**
+     * Cria o ponto de partida do fogo na base do canvas
+     */
     create() {
-        for(let column = 0; column <= fireWidth; column ++){
-            const overflowPixelIndex = fireWidth * fireHeight;
-            const pixelIndex = (overflowPixelIndex - fireWidth) + column;
-    
-            this.pixelsArray[pixelIndex] = 36;
+        const lastRow = this.firePixelsMatriz[this.firePixelsMatriz.length - 1];
+        for(let column = 0; column < lastRow.length; column ++){
+            lastRow[column] = this.baseFireBrightness;
         }
     }
 
