@@ -28,7 +28,7 @@ const processor = new FireProcessor(firePixelsMatriz, renderer,
         intensity: 2
     }
 );
-const pecil = new FireCanvasPencil(firePixelsMatriz ,canvas, fireWidth, fireHeight, 
+const pencil = new FireCanvasPencil(firePixelsMatriz ,canvas, fireWidth, fireHeight, 
     {
         pencilWidth: 10,
         pencilBaseColor: 36
