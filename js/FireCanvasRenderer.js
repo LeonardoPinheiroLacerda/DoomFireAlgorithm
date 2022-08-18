@@ -1,7 +1,7 @@
 class FireCanvasRenderer extends BaseFireRenderer{
 
 
-    constructor(firePixelsMatriz, fireWidth, fireHeight, canvasWidth, canvasHeight){
+    constructor(firePixelsMatriz, fireWidth, fireHeight, canvasWidth, canvasHeight, canvas){
         super(firePixelsMatriz, fireWidth, fireHeight);
         this.canvasHeight = canvasHeight;
         this.canvasWidth = canvasWidth;
@@ -9,9 +9,11 @@ class FireCanvasRenderer extends BaseFireRenderer{
         this.canvas = this.createCanvas();
         this.ctx = this.canvas.getContext('2d');
 
-        let pixelSize = this.calculatePixelSize();
+        const pixelSize = this.calculatePixelSize();
         this.pixelWidth = pixelSize.w;
         this.pixelHeight = pixelSize.h;
+
+        canvas = this.canvas;
     }
 
     /**
@@ -38,6 +40,7 @@ class FireCanvasRenderer extends BaseFireRenderer{
         const canvas = document.createElement('canvas');
         canvas.width = this.canvasWidth;
         canvas.height = this.canvasHeight;
+        canvas.id = 'canvas';
 
         div.append(canvas);
 
@@ -45,8 +48,8 @@ class FireCanvasRenderer extends BaseFireRenderer{
     }
 
     calculatePixelSize() {
-        const w = this.canvasWidth / fireWidth;
-        const h = this.canvasHeight / fireHeight;
+        const w = this.canvasWidth / this.fireWidth;
+        const h = this.canvasHeight / this.fireHeight;
         return{w, h};
     }
 
@@ -62,8 +65,9 @@ class FireCanvasRenderer extends BaseFireRenderer{
 
         this.ctx.fillStyle = colorString;
         this.ctx.fillRect(pixelPositionX, pixelPositionY, this.pixelWidth, this.pixelHeight);
-
     }
+
+    
 
 
 }
