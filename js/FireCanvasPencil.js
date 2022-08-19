@@ -2,8 +2,8 @@ class FireCanvasPencil {
 
     constructor(firePixelsMatriz ,canvas, fireWidth, fireHeight, options = {}){
         this.canvas = canvas;
-        this.pressed = false;
-        this.holding = false;
+        //this.pressed = false;
+        //this.holding = false;
 
         this.fireHeight = fireHeight;
         this.fireWidth = fireWidth;
@@ -39,38 +39,26 @@ class FireCanvasPencil {
 
         }
 
-        this.canvas.addEventListener('mousedown', ({offsetX, offsetY}) => {
-            this.pressed = true;
-            this.holding = true;
+        // this.canvas.addEventListener('mousedown', ({offsetX, offsetY}) => {
+        //     this.pressed = true;
+        //     this.holding = true;            
+        // });
 
-            this.holdInteval = setInterval(() => {
-                if(this.holding){
-                    const {row, column} = getPixelPositionByOffset(offsetX, offsetY);
-                    generateFireSource(row, column);
-                }
-            }, 40);
-            
-        });
+        // this.canvas.addEventListener('mouseup', ({offsetX, offsetY}) => {
+        //     this.pressed = false;
+        // });
 
-        this.canvas.addEventListener('mouseup', ({offsetX, offsetY}) => {
-            this.pressed = false;
-            clearInterval(this.holdInteval);
-        });
-
-        this.canvas.addEventListener('mouseout', ({offsetX, offsetY}) => {
-            this.pressed = false;
-            clearInterval(this.holdInteval);
-        });
+        // this.canvas.addEventListener('mouseout', ({offsetX, offsetY}) => {
+        //     this.pressed = false;
+        // });
 
         this.canvas.addEventListener('mousemove', ({offsetX, offsetY}) => {
-            clearInterval(this.holdInteval);
             
-            if(this.pressed){
+            //if(this.pressed){
                 const {row, column} = getPixelPositionByOffset(offsetX, offsetY);
                 generateFireSource(row, column);
-            }
+            //}
         });
-        
     }
 
 }
