@@ -9,40 +9,57 @@ const fireHeight = canvasHeight / 4;
 
 const frameSpeed = 40;
 
-const renderer = new FireCanvasRenderer(firePixelsMatriz, fireWidth, fireHeight, canvasWidth, canvasHeight);
-if(renderer.pixelHeight !== renderer.pixelWidth){
-    console.warn({message: 'pixels retangulares', height: renderer.pixelHeight, width: renderer.pixelWidth})
-}
-
-const canvas = document.querySelector("#canvas");
-
-const dataStructureCreator = new FireDataStructureCreator(firePixelsMatriz, fireWidth, fireHeight);
-const sourceCreator = new FireSourceCreator(firePixelsMatriz, 
-    {
-        sourceFireBrightness: 36
-    }
-);
-const processor = new FireProcessor(firePixelsMatriz, renderer, 
-    {
-        windDirection: 'right',
-        intensity: 2
-    }
-);
-const pencil = new FireCanvasPencil(firePixelsMatriz ,canvas, fireWidth, fireHeight, 
-    {
-        pencilWidth: 10,
-        pencilBaseColor: 36
-    }
-);
+var renderer;
+var canvas;
+var dataStructureCreator;
+var sourceCreator;
+var processor;
+var pencil;
+var controller;
 
 function bootstrap(frameSpeed) {
+
+    renderer = new FireCanvasRenderer(firePixelsMatriz, fireWidth, fireHeight, canvasWidth, canvasHeight);
+    canvas = document.querySelector("#canvas");
+    
+    dataStructureCreator = new FireDataStructureCreator(firePixelsMatriz, fireWidth, fireHeight);
+    sourceCreator = new FireSourceCreator(firePixelsMatriz, 
+        {
+            sourceFireBrightness: 36
+        }
+    );
+    processor = new FireProcessor(firePixelsMatriz, renderer, 
+        {
+            windDirection: 'right',
+            intensity: 2
+        }
+    );
+    pencil = new FireCanvasPencil(firePixelsMatriz ,canvas, fireWidth, fireHeight, 
+        {
+            pencilWidth: 5,
+            pencilBaseColor: 36
+        }
+    );
+
     dataStructureCreator.create();
-    sourceCreator.create();
 
     setInterval(() => processor.calculateFirePropagation(), frameSpeed);
 
     renderer.renderFire();
     pencil.init();
+
+    controller = new FireController(sourceCreator, processor, pencil);
 }
+
+function toggleFireSource() {
+    if(!controller.isFireOn){
+        controller.lightTheFire();
+    }else{
+        controller.putOutTheFire();
+    }
+}
+
+
+
 
 bootstrap(frameSpeed);
