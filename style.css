@@ -1,5 +1,6 @@
-*{
+* {
     font-size: 16px;
+    color: gray
 }
 
 #fire-canvas {
@@ -31,12 +32,12 @@ td div.pixel-index {
     color: #999;
 }
 
-td.pixel{
+td.pixel {
     height: 4px !important;
     width: 4px !important;
     border: none !important;
 }
 
-label{
+label {
     font-size: 1.2rem;
 }

@@ -1,13 +1,14 @@
 const firePixelsMatriz = [];
 
-const canvasWidth = 1080;
-const canvasHeight = 720;
+const canvasWidth = document.body.clientWidth;
+const canvasHeight = canvasWidth * .3;
 
-const fireWidth = canvasWidth / 4;
-const fireHeight = canvasHeight / 4;
+const pixelSize = canvasWidth / 300;
 
+const fireWidth = canvasWidth / pixelSize;
+const fireHeight = canvasHeight / pixelSize;
 
-const frameSpeed = 40;
+const frameSpeed = 10;
 
 var renderer;
 var canvas;
@@ -90,7 +91,5 @@ function alternateWindDirection() {
 function setPencilWidth(width){
     controller.setPencilWidth(width)
 }
-
-
 
 bootstrap(frameSpeed);
