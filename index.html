@@ -6,12 +6,18 @@
     <body>
         <div id="fire-canvas"></div>
 
+        <br><br>
+
         <button onclick="toggleFireSource()">Ligar/Desligar fogueira</button>
-        <input type="button" id="alternate-wind-direction" onclick="alternateWindDirection()" value="Alterar direção do vento" />
-        <input type="range" id='pencilWidth' min=3 max=15 value=3 oninput="setPencilWidth(this)" onchange="setPencilWidth(this)"/>
+        
+        <br><br>
+
+        <label for="pencil-width">Largura do lápis</label>
+        <input type="range" id='pencil-width' min=3 max=15 value=9 oninput="setPencilWidth(this)" onchange="setPencilWidth(this)"/>
 
         <br><br>
 
+        <label>Intensidade do fogo</label>
         <input type="button" id="min-intensity" onclick="minIntensity()" value="Min"/>
         <input type="button" id="decrease-intensity" onclick="decreaseIntesity()"value="-"/>
         <input type="button" id="increase-intensity" onclick="increaseIntesity()" value="+"/>
