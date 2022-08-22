@@ -1,14 +1,14 @@
 const firePixelsMatriz = [];
 
 const canvasWidth = document.body.clientWidth;
-const canvasHeight = canvasWidth * .3;
+const canvasHeight = canvasWidth * .4;
 
 const pixelSize = canvasWidth / 300;
 
 const fireWidth = canvasWidth / pixelSize;
 const fireHeight = canvasHeight / pixelSize;
 
-const frameSpeed = 10;
+const frameSpeed = 30;
 
 var renderer;
 var canvas;
