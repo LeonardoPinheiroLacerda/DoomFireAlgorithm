@@ -2,8 +2,6 @@ class FireCanvasPencil {
 
     constructor(firePixelsMatriz ,canvas, fireWidth, fireHeight, options = {}){
         this.canvas = canvas;
-        //this.pressed = false;
-        //this.holding = false;
 
         this.fireHeight = fireHeight;
         this.fireWidth = fireWidth;
@@ -39,25 +37,10 @@ class FireCanvasPencil {
 
         }
 
-        // this.canvas.addEventListener('mousedown', ({offsetX, offsetY}) => {
-        //     this.pressed = true;
-        //     this.holding = true;            
-        // });
-
-        // this.canvas.addEventListener('mouseup', ({offsetX, offsetY}) => {
-        //     this.pressed = false;
-        // });
-
-        // this.canvas.addEventListener('mouseout', ({offsetX, offsetY}) => {
-        //     this.pressed = false;
-        // });
 
         this.canvas.addEventListener('mousemove', ({offsetX, offsetY}) => {
-            
-            //if(this.pressed){
-                const {row, column} = getPixelPositionByOffset(offsetX, offsetY);
-                generateFireSource(row, column);
-            //}
+            const {row, column} = getPixelPositionByOffset(offsetX, offsetY);
+            generateFireSource(row, column);
         });
     }
 

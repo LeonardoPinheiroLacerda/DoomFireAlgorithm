@@ -59,6 +59,37 @@ function toggleFireSource() {
     }
 }
 
+function toggleFireDirection() {
+    if(!controller.isFireOn){
+        controller.lightTheFire();
+    }else{
+        controller.putOutTheFire();
+    }
+}
+
+function minIntensity(){
+    controller.minFireStage();
+}
+
+function maxIntensity(){
+    controller.maxFireStage();
+}
+
+function decreaseIntesity(){
+    controller.increaseFireStage();
+}
+
+function increaseIntesity(){
+    controller.decreaseFireStage();
+}
+
+function alternateWindDirection() {
+    controller.toogleWindDirection();
+}
+
+function setPencilWidth(width){
+    controller.setPencilWidth(width)
+}
 
 
 
